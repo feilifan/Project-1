@@ -242,7 +242,7 @@ nav ul {
   position: relative;
 }
 .nav_menu-item:hover {
-  background-color: #9b59b6;
+  background-color: #66ccff;
 }
 .nav_menu-item:hover .nav_submenu {
   display: block;
@@ -253,7 +253,7 @@ nav ul {
   display: none;
   position: absolute;
   width: 220px;
-  background-color: #9b59b6;
+  background-color: #19f895;
 }
 .nav_submenu-item:hover {
   background: rgba(0, 0, 0, 0.1);
