@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>javascript制作影视网站星级打分代码</title>
+<meta name="description" content="javascript特效制作各大影视网站流行的星级打分代码效果，通过鼠标滑过星星，来给电影或视频打分评论的效果。" />
+</head>
+
+<body>
+
+<style type="text/css">
+/**{margin:0;padding:0;list-style-type:none;}*/
+/* sitelogo */
+#sitelogo{position:relative;margin:40px auto;width:430px;height:60px;border:solid 1px #ddd;padding:10px 10px 0 10px;}
+#sitelogo span{display:block;float:left;}
+#sitelogo img{border:#e0e0e0 1px solid;padding:2px;}
+#sitelogo a:hover img{border:#69f 1px solid;padding:2px;}
+/* sitelogo ul */
+#sitelogo ul{display:block;float:left;width:100px;height:28px;position:relative;background: url('starrating.gif') top left repeat-x;margin:22px 5px 0 32px;}
+#sitelogo ul li{float:left;}
+#sitelogo ul li a{display:block;width:10px;height:28px;text-indent:-9000px;z-index:20;position:absolute;overflow:hidden;}
+#sitelogo ul li a:hover{background:url('starrating.gif') left 35px;z-index:2;left:0;}
+#sitelogo ul a.star1{left:0px;}
+#sitelogo ul a.star1:hover{width:10px;}
+#sitelogo ul a.star2{left:10px;}
+#sitelogo ul a.star2:hover{width:20px;}
+#sitelogo ul a.star3{left:20px;}
+#sitelogo ul a.star3:hover{width:30px;}
+#sitelogo ul a.star4{left:30px;}
+#sitelogo ul a.star4:hover{width:40px;}
+#sitelogo ul a.star5{left:40px;}
+#sitelogo ul a.star5:hover{width:50px;}
+#sitelogo ul a.star6{left:50px;}
+#sitelogo ul a.star6:hover{width:60px;}
+#sitelogo ul a.star7{left:60px;}
+#sitelogo ul a.star7:hover{width:70px;}
+#sitelogo ul a.star8{left:70px;}
+#sitelogo ul a.star8:hover{width:80px;}
+#sitelogo ul a.star9{left:80px;}
+#sitelogo ul a.star9:hover{width:90px;}
+#sitelogo ul a.star10{left:90px;}
+#sitelogo ul a.star10:hover{width:100px;}
+#currentrating{background:url('starrating.gif') left bottom;position:absolute;height:21px;width:0;display:block;text-indent:-9000px;z-index:1;}
+#sitelogo #pftip{position:absolute;top:8px;left:168px;width:200px;color:#999;font-size:14px;}
+#sitelogo #pfno{margin:24px 8px 0 0;width:40px;color:green;font-family:Arial;font-weight:bold;font-size:14px;}
+#sitelogo p{width:110px;float:left;color:#666;}
+#sitelogo p span{font-family:Arial;font-style:italic;color:#f60;}
+#sitelogo #pfshi{font-size:32px;line-height:28px;font-weight:bold;}
+#sitelogo #pfge{font-size:18px;line-height:22px;}
+#sitelogo p span.no{width:110px;clear:both;color:#666;font-style:normal;font-size:12px;}
+</style>
+
+<script type="text/javascript">
+function GI(id){
+	return document.getElementById(id);
+}
+function infen(var1){
+	if (var1>0){
+		GI("pfno").innerHTML=var1+"分 ";
+		GI("currentrating").style.display="none";
+	}
+	else{
+		GI("pfno").innerHTML="";
+		GI("currentrating").style.display="block";
+	}
+}
+</script>
+
+	<div id="sitelogo">
+		<ul class="starrating" style="margin:0;padding:0;list-style-type:none;">
+			<li id="currentrating"></li>
+			<li><a onmouseover="infen(1)" onmouseout="infen(0)" class="star1">1</a></li>
+			<li><a onmouseover="infen(2)" onmouseout="infen(0)" class="star2">2</a></li>
+			<li><a onmouseover="infen(3)" onmouseout="infen(0)" class="star3">3</a></li>
+			<li><a onmouseover="infen(4)" onmouseout="infen(0)" class="star4">4</a></li>
+			<li><a onmouseover="infen(5)" onmouseout="infen(0)" class="star5">5</a></li>
+			<li><a onmouseover="infen(6)" onmouseout="infen(0)" class="star6">6</a></li>
+			<li><a onmouseover="infen(7)" onmouseout="infen(0)" class="star7">7</a></li>
+			<li><a onmouseover="infen(8)" onmouseout="infen(0)" class="star8">8</a></li>
+			<li><a onmouseover="infen(9)" onmouseout="infen(0)" class="star9">9</a></li>
+			<li><a onmouseover="infen(10)" onmouseout="infen(0)" class="star10">10</a></li>
+		</ul>		
+		<span id="pfno" style="margin:0;padding:0;list-style-type:none;"></span>
+	</div>
+
+</body>
+</html>
