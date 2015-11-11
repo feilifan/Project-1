@@ -258,6 +258,17 @@ nav ul {
 .nav_submenu-item:hover {
   background: rgba(0, 0, 0, 0.1);
 }
+.nav_submenu-item a.sub-link{
+  display : block;
+  color: #fff;
+  text-decoration:none;
+}
+.nav_submenu-item a.sub-link span{
+  display: block;
+  line-height: 18px;
+  padding: 6px 0;
+
+}
 #sitelogo{position:relative;width:430px;height:30px;padding:10px 10px 0 10px;}
 #sitelogo span{display:block;float:left;}
 #sitelogo img{border:#e0e0e0 1px solid;padding:2px;}
@@ -295,3 +306,4 @@ nav ul {
 #sitelogo #pfshi{font-size:32px;line-height:28px;font-weight:bold;}
 #sitelogo #pfge{font-size:18px;line-height:22px;}
 #sitelogo p span.no{width:110px;clear:both;color:#666;font-style:normal;font-size:12px;}
+
