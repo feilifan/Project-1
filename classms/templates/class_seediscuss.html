@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/bootstrap.css" rel="stylesheet">
+<link href="/bootstrap-responsive.css" rel="stylesheet" media="screen">
+<link href="/hosting.css" rel="stylesheet" media="all">
+<link rel="stylesheet" type="text/css" href="/styles.css">
+<script type="text/javascript" src="/year_month_day.js"></script>
+<script>
+function GI(id){
+    return document.getElementById(id);
+}
+function infen(var1){
+    if (var1>0){
+        GI("pfno").innerHTML=var1+"分 ";
+        GI("currentrating").style.display="none";
+    }
+    else{
+        GI("pfno").innerHTML="";
+        GI("currentrating").style.display="block";
+    }
+}
+</script>
+</head>
+
+<body>
+    <div class="container">
+        {% include "base.html" %}
+        <div class="row-fluid">
+            <div class="span5 Planlist" style="border-radius:5px;width:500px;height:550px">
+                <h2 style="margin-left:10px;margin-top:10px;">房间号：正心-108</h2>
+                <h5 style="margin-left:10px;margin-top:20px;">管理员：孙日辉</h5>
+                <div class="PlanPricing template" style="position:relative">
+                    <div style="position:relative;margin-left:10px"><h2>评价人：吴大宝</h2></div>
+                    <div id="sitelogo" style="margin-top:10px">
+                        <span>评分：</span>
+                        <ul class="starrating" style="margin:0;padding:0;list-style-type:none;">
+                        </ul>
+                    </div>
+                    <p style="margin-top:10px;margin-left:10px;">评语：麦克风有点毛病，声音小</p>
+                </div>
+                <div class="PlanPricing template" style="position:relative">
+                    <div style="position:relative;margin-left:10px"><h2>评价人：小二雷</h2></div>
+                    <div id="sitelogo" style="margin-top:10px">
+                        <span>评分：</span>
+                        <ul class="starrating" style="margin:0;padding:0;list-style-type:none;">
+                        </ul>
+                    </div>
+                    <p style="margin-top:10px;margin-left:10px;">评语：桌椅有损坏</p>
+                </div>
+                <div class="PlanPricing template" style="position:relative">
+                    <div style="position:relative;margin-left:10px"><h2>评价人：孙日辉</h2></div>
+                    <div id="sitelogo" style="margin-top:10px">
+                        <span>评分：</span>
+                        <ul class="starrating" style="margin:0;padding:0;list-style-type:none;">
+                        </ul>
+                    </div>
+                    <p style="margin-top:10px;margin-left:10px;">评语：怎么可能你在逗我</p>
+                </div>
+            </div>
+            <div class="span5 Planlist" style="position:relative;border-radius:5px;width:660px;z-index:-2;margin-left:10px">
+                <div class="wrapper"style="height:550px;width:660px;margin-top:0px;border-radius:5px;z-index:-1">
+                    <div class="bg-bubble-label" style="left:270px;top:225px"></div>
+                    <div class="bg-bubble-label2" style="left:270px;top:225px"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row-fluid">
+            <div class="Planlist" style="border-radius:5px">
+                <p style="text-align:center;background:#66ffcc">© 2015 哈尔滨工业大学 版权所有</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
