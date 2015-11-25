@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/css/bootstrap.css" rel="stylesheet">
+<link href="/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+<link href="/css/hosting.css" rel="stylesheet" media="all">
+<link rel="stylesheet" type="text/css" href="/css/styles.css">
+<script type="text/javascript" src="/css/year_month_day.js"></script>
+</head>
+<body>
+    <form method="post">
+    <div class="container">
+        <div class="row-fluid">
+            <div class="wrapper" style="height:650px;position:absolute;margin-top:-260px">
+            <ul class="bg-bubbles">
+            <li></li><li></li><li></li><li></li><li></li><li></li>
+            <li></li><li></li><li></li><li></li><li></li><li></li>
+            <li></li><li></li><li></li><li></li>
+            </ul>
+            <ul class="bg-bubbles2">
+            <li></li><li></li><li></li><li></li><li></li><li></li>
+            <li></li><li></li><li></li><li></li><li></li><li></li>
+            <li></li><li></li><li></li><li></li>
+            </ul>
+            <div class="PlanPricing" style="position:relative;margin-left:37%;margin-top:13%;z-index:3;border-radius:10px;width:360px">
+            <h1 style="text-align:center">教室借用登录</h1>
+            <div class="span3" style="width:90px;position:relative;z-index:2">
+                <h3 style="text-align:left;margin-top:30px">用户名</h3>
+                <h3 style="text-align:left;">密码</h3>
+            </div>
+            <div class="span5" style="width:150px;position:relative;z-index:2">
+                <input name="name" type="text" style="z-index:2;border-radius:20px;margin-top:30px">
+                <input name="code" type="password" style="z-index:2;border-radius:20px;margin-top:10px">
+            </div>
+            <input name="load" type="submit" class="btn btn-success btn-large" style="border-radius:5px;margin-top:20px;width:100%" value="登录">
+            {% if judge %}
+            {% else %} <p align="center">错误</p>
+            {% endif %}
+            <p style="text-align:center">还未注册？<span><a href="/register/">现在注册</a></span></p>
+            </div>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/css/bootstrap.css" rel="stylesheet">
+<link href="/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+<link href="/css/hosting.css" rel="stylesheet" media="all">
+<link rel="stylesheet" type="text/css" href="/css/styles.css">
+<script type="text/javascript" src="/css/year_month_day.js"></script>
+</head>
+
+<body>
+    <form method="post">
+    <div class="container">
+        <div class="row-fluid PageHead">
+            <h1 style="text-align:center;position:relative;z-index:2;margin-top:43px">教室借用</h1>
+            <div class="wrapper" style="height:160px;position:relative;width:100%;margin-top:-100px">
+                <div class="bg-bubble-label" style="width:50px;height:50px;margin-left:450px;top:28%"></div>
+                <div class="bg-bubble-label2" style="width:50px;height:50px;margin-left:450px;top:28%"></div>
+            </div>
+        </div>
+        <div class="row-fluid" style="margin-top:10px">
+            <nav class="nav" style="width:100%">
+              <ul class="nav_menu">
+                <li class="nav_menu-item"><a href="/class_selflist/" style="color:#FFF;text-decoration:none">我的主页</a></li>
+                <li class="nav_menu-item"><a style="color:#FFF;text-decoration:none">服务</a>
+                  <ul class="nav_submenu">
+                    <li class="nav_submenu-item"> <a class="sub-link" href="/class_mainlist/"><span>教室查询</span></a></li>
+                  </ul>
+                </li>
+                <li class="nav_menu-item"><a style="color:#FFF;text-decoration:none">关于</a>
+                  <ul class="nav_submenu">
+                    <li class="nav_submenu-item"> <a class="sub-link"><span>工作组</span></a></li>
+                    <li class="nav_submenu-item"> <a class="sub-link"><span>开发人信息</span></a></li>
+                    <li class="nav_submenu-item"> <a class="sub-link"><span>公司</span></a></li>
+                  </ul>
+                </li>
+                <li class="nav_menu-item"><a style="color:#FFF;text-decoration:none">联系方式</a></li>
+                <li class="nav_menu-item"><a style="color:#FFF;text-decoration:none">帮助</a></li>
+              </ul>
+            </nav>
+        </div>
+        <div class="row-fluid">
+            <div class="span5 Planlist" style="position:relative;border-radius:5px;width:700px;z-index:-2">
+                <div class="wrapper"style="height:400px;width:700px;margin-top:0px;border-radius:5px;z-index:-1">
+                    <div class="bg-bubble-label" style="left:290px;top:150px"></div>
+                    <div class="bg-bubble-label2" style="left:290px;top:150px"></div>
+                </div>
+            </div>
+            <div class="span6 Planlist" style="margin-left:10px;border-radius:5px;width:460px">
+                <h2 style="text-align:center">其他条件</h2>
+                <h3 style="margin-top:15px">楼栋<select name="building" style="margin-left:10px;font-size:17px;width:100px;border-radius:50px">
+                    <option value="正心">正心</option>
+                    <option value="致知">致知</option>
+                    <option value="格物">格物</option>
+                    <option value="诚意">诚意</option>
+                    </select></h3>
+                <h3 style="margin-top:15px">楼层<select name="floor" style="margin-left:10px;font-size:17px;width:100px;border-radius:50px">
+                    <option value="1">1层</option>
+                    <option value="2">2层</option>
+                    <option value="3">3层</option>
+                    <option value="4">4层</option>
+                    <option value="5">5层</option>
+                    <option value="6">6层</option>
+                    <option value="7">7层</option>
+                    <option value="8">8层</option>
+                    <option value="9">9层</option>
+                    <option value="10">10层</option>
+                    </select></h3>
+                <h3 style="margin-top:15px">可容纳人数<select name="size" style="margin-left:10px;font-size:17px;width:100px;border-radius:50px">
+                    <option value="10-30">10-30</option>
+                    <option value="30-50">30-50</option>
+                    <option value="50-100">50-100</option>
+                    <option value="100-200">100-200</option>
+                    <option value="200+">200+</option>
+                    </select></h3>
+                <h3 style="margin-top:15px">是否为多媒体教室<select name="multimedia" style="margin-left:9px;font-size:17px;width:100px;border-radius:50px">
+                    <option value="Y">是</option>
+                    <option value="N">否</option>
+                    </select></h3>
+                <h3 style="margin-top:15px">时间
+                    <select name="selYear" id="selYear" style="width:90px;font-size:17px;border-radius:50px"></select> 
+                        <select name="selMonth" id="selMonth" style="font-size:17px;border-radius:50px"></select> 
+                        <select name="selDay" id="selDay" style="font-size:17px;border-radius:50px"></select>
+                        <select name="clock" type="text" style="width:120px;border-radius:50px">
+                            <option value="8:00-9:45">8:00-9:45</option>
+                            <option value="10:00-11:45">10:00-11:45</option>
+                            <option value="13:45-15:30">13:45-15:30</option>
+                            <option value="15:45-17:30">15:45-17:30</option>
+                            <option value="18:30-21:10">18:30-21:10</option>
+                            <option value="21:20-22:50">21:20-22:50</option>
+                        </select>
+                </h3>
+                <script type="text/javascript"> 
+                var selYear = window.document.getElementById("selYear"); 
+                var selMonth = window.document.getElementById("selMonth"); 
+                var selDay = window.document.getElementById("selDay"); 
+                new DateSelector(selYear, selMonth, selDay, 2015, 11, 10);
+                </script>
+                <input type="submit" class="btn btn-success btn-large" style="margin-top:9px" value="查询">
+                <input type="submit" class="btn btn-success btn-large" style="margin-top:9px" value="教室推荐">
+            </div>
+        </div>
+        <div class="row-fluid">
+            {% for room in room_list %}
+                <div class="PlanPricing template4">
+                    <div class="span2"><h2 style="margin-top:15%">{{room.name}}</h2></div>
+                    <div class="span3" style="width:17%">
+                        <p style="font-weight:bold;margin-top:15%">管理人：{{room.hoster.name}}</p>
+                    </div>
+                    <div class="span2">
+                        <img src="/site_media/1.jpg" style="margin-left:10px;border-radius:10px">
+                    </div>    
+                    <input type="button" class="btn btn-success" style="margin-top:1%;margin-left:50px;width:120px" value="查询信息" onclick="window.location.href='/class_binfo/?room={{room.name}}'">
+                    <input type="button" class="btn btn-success" style="margin-top:1%;width:120px" value="进行评价" onclick="window.location.href='/class_discuss/?room={{room.name}}'">
+                    <input type="button" class="btn btn-success" style="margin-top:1%;width:120px" value="查看评价" onclick="window.location.href='/class_seediscuss/?room={{room.name}}'">
+                    <input type="button" class="btn btn-success" style="margin-top:1%;width:120px" value="我要借用" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{apply_time}}'">
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row-fluid">
+            <div class="Planlist" style="border-radius:5px">
+                <p style="text-align:center;background:#66ffcc">© 2015 哈尔滨工业大学 版权所有</p>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

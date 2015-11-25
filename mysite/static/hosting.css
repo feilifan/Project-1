@@ -1,0 +1,309 @@
+@charset "utf-8";
+/*==========PLANS AND PRICING==============*/
+
+/* Animation */
+.Planlist {
+    margin-top:10px;
+    background-color:rgba(255,255,255,0.5);
+    -moz-transition:all 0.3s ease;
+    -webkit-transition:all 0.3s ease;
+    -ms-transition:all 0.3s ease;
+    -o-transition:all 0.3s ease;
+    transition:all 0.3s ease;
+    -moz-box-shadow:0px 0px 5px rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow:0px 0px 5px rgba(0, 0, 0, 0.3);
+	box-shadow:0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+.Planlist:hover {
+  -moz-box-shadow:0px 0px 5px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow:0px 0px 5px rgba(0, 0, 0, 0.6);
+  box-shadow:0px 0px 5px rgba(0, 0, 0, 0.6);
+}
+
+.PlanPricing {
+  border-radius:5px;
+  border:1px solid #66ccff;
+	margin-top:10px;
+	background-color:rgba(255,255,255,0.5);
+	-moz-transition:all 0.3s ease;
+	-webkit-transition:all 0.3s ease;
+	-ms-transition:all 0.3s ease;
+	-o-transition:all 0.3s ease;
+	transition:all 0.3s ease;
+}
+.PlanPricing:hover {
+	-moz-transform:scale(1.1);
+	-webkit-transform:scale(1.1);
+	-o-transform:scale(1.1);
+	-ms-transform:scale(1.1);
+	transform:scale(1.1);
+	z-index:2;
+	-moz-box-shadow:0px 0px 5px rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow:0px 0px 5px rgba(0, 0, 0, 0.3);
+	box-shadow:0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+.PlanPricing .planName {
+	padding-top:50px;
+	padding-bottom:10px;
+	text-align:center;
+}
+.PlanPricing .price {
+	background:#2cc76a;
+	padding:5px;
+	color:#FFF;
+	font-size:50px;
+	-webkit-border-radius:100%;
+	-moz-border-radius:100%;
+	border-radius:100%;
+	display:block;
+	width:100px;
+	height:100px;
+	line-height:100px;
+	margin:0 auto;
+	position:relative;
+	margin-top:-107px;
+	margin-bottom:10px;
+}
+.PlanPricing.Recommended .price {
+	background:#f45c57;
+}
+.PlanPricing .planName h3 {
+	color:#FFF;
+	text-align:center;
+	padding:0;
+	margin:0;
+	text-transform:uppercase;
+}
+.PlanPricing .planName p {
+	text-align:center;
+}
+.PlanPricing .planFeatures {
+	text-align:center;
+	padding:10px;
+}
+.PlanPricing .planFeatures ul {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.PlanPricing .planFeatures ul li {
+	padding:13px 0;
+	list-style:none;
+}
+.PlanPricing p {
+	margin:0;
+}
+.PlanPricing .btn {
+	width:100%;
+	-webkit-border-radius:0;
+	-moz-border-radius:0;
+	border-radius:0;
+	margin:0;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+}
+
+
+/*========= Price CSS==============*/
+
+.bg{
+    text-align: center;
+    background-image:linear-gradient(to bottom, #62c462, #29e029);
+}
+.template4{
+    overflow:hidden;
+    font: 'Open Sans';
+    font-size:13px;
+    font-weight:300;
+    position:relative;
+    transition: all 0.5s linear 0s;
+    background-color:rgba(255,255,255,0.5);
+}
+
+.template4:hover{
+	transition: all 0.2s linear 0s;
+}
+
+.template4:hover > p a{
+	width:100% !important;
+	
+}
+
+.template4:hover > div span.price{
+	top:50px; !important;
+	transition: all 0.6s linear 0s;
+}
+
+.PlanPricing.template4 .planName h3 {
+    color: #333;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+.PlanPricing.template4 .price {
+    background: none repeat scroll 0 0 #2CC76A;
+    border-radius: 0;
+    color: #FFFFFF;
+    display: block;
+    font-size: 50px;
+    height: 50px;
+    line-height: 50px;
+    margin: -50px auto 10px;
+    padding: 5px;
+    position: relative;
+    width: 100%;
+}
+
+.PlanPricing.template4 .btn {
+    border-radius: 0;
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 60%;
+	color:#fff;
+	font-size:15px;
+	padding:20px 30px;
+	background-color: #5bb75b;
+     background-image: linear-gradient(to bottom, #62c462, #29e029);
+	 -webkit-transition: all 0.51s ease-in-out;
+-moz-transition: all 0.51s ease-in-out;
+-o-transition: all 0.51s ease-in-out;
+transition: all 0.51s ease-in-out;
+}
+
+.PlanPricing.template4 .btn:hover {
+   background: #30E030;
+   -webkit-transition: all 0.51s ease-in-out;
+-moz-transition: all 0.51s ease-in-out;
+-o-transition: all 0.51s ease-in-out;
+transition: all 0.51s ease-in-out;
+}
+
+
+.span3.PlanPricing.template4 > p {
+    text-align: center;
+}
+
+
+.PlanPricing.template4 .price {
+    background: none repeat scroll 0 0 #1ed434;
+    border-radius: 0;
+    color: #FFFFFF;
+    display: block;
+    font-size: 40px;
+    height: 40px;
+    line-height: 40px;
+    padding: 5px;
+    position: absolute;
+    top:-150px;
+    width: 100%;
+    transition: all 1s linear 0s;
+}
+
+.orange{
+	color:#fba826;	
+}
+
+.template4 .planFeatures {
+    color: #333333;
+}
+
+nav ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.nav {
+  width: 500px;
+  margin: 0 auto;
+  background: #44f8c6;
+  color: #f0f0f0;
+}
+.nav a {
+  display: block;
+  padding: 0 16px;
+  line-height: inherit;
+  cursor: pointer;
+}
+.nav_menu {
+  line-height: 55px;
+  font-weight: 700;
+  font-size: large;
+  text-transform: uppercase;
+}
+.nav_menu-item {
+  display: inline-block;
+  position: relative;
+}
+.nav_menu-item:hover {
+  background-color: #66ccff;
+}
+.nav_menu-item:hover .nav_submenu {
+  display: block;
+}
+.nav_submenu {
+  font-weight: 300;
+  text-transform: none;
+  display: none;
+  position: absolute;
+  width: 220px;
+  background-color: #19f895;
+}
+.nav_submenu-item:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+.nav_submenu-item a.sub-link{
+  display : block;
+  color: #fff;
+  text-decoration:none;
+}
+.nav_submenu-item a.sub-link span{
+  display: block;
+  line-height: 18px;
+  padding: 6px 0;
+
+}
+#sitelogo{position:relative;width:430px;height:30px;padding:10px 10px 0 10px;}
+#sitelogo span{display:block;float:left;}
+#sitelogo img{border:#e0e0e0 1px solid;padding:2px;}
+#sitelogo a:hover img{border:#69f 1px solid;padding:2px;}
+/* sitelogo ul */
+#sitelogo ul{display:block;float:left;width:100px;height:28px;position:relative;background: url('/site_media/starrating.gif') top left repeat-x;margin:22px 5px 0 32px;}
+#sitelogo ul li{float:left;}
+#sitelogo ul li a{display:block;width:10px;height:28px;text-indent:-9000px;z-index:20;position:absolute;overflow:hidden;}
+#sitelogo ul li a:hover{background:url('/site_media/starrating.gif') left 35px;z-index:2;left:0;}
+#sitelogo ul a.star1{left:0px;}
+#sitelogo ul a.star1:hover{width:10px;}
+#sitelogo ul a.star2{left:10px;}
+#sitelogo ul a.star2:hover{width:20px;}
+#sitelogo ul a.star3{left:20px;}
+#sitelogo ul a.star3:hover{width:30px;}
+#sitelogo ul a.star4{left:30px;}
+#sitelogo ul a.star4:hover{width:40px;}
+#sitelogo ul a.star5{left:40px;}
+#sitelogo ul a.star5:hover{width:50px;}
+#sitelogo ul a.star6{left:50px;}
+#sitelogo ul a.star6:hover{width:60px;}
+#sitelogo ul a.star7{left:60px;}
+#sitelogo ul a.star7:hover{width:70px;}
+#sitelogo ul a.star8{left:70px;}
+#sitelogo ul a.star8:hover{width:80px;}
+#sitelogo ul a.star9{left:80px;}
+#sitelogo ul a.star9:hover{width:90px;}
+#sitelogo ul a.star10{left:90px;}
+#sitelogo ul a.star10:hover{width:100px;}
+#currentrating{background:url('/site_media/starrating.gif') left bottom;position:absolute;height:21px;width:0;display:block;text-indent:-9000px;z-index:1;}
+#sitelogo #pftip{position:absolute;top:8px;left:168px;width:200px;color:#999;font-size:14px;}
+#sitelogo #pfno{margin:24px 8px 0 0;width:40px;color:green;font-family:Arial;font-weight:bold;font-size:14px;}
+#sitelogo p{width:110px;float:left;color:#666;}
+#sitelogo p span{font-family:Arial;font-style:italic;color:#f60;}
+#sitelogo #pfshi{font-size:32px;line-height:28px;font-weight:bold;}
+#sitelogo #pfge{font-size:18px;line-height:22px;}
+#sitelogo p span.no{width:110px;clear:both;color:#666;font-style:normal;font-size:12px;}
+
