@@ -76,73 +76,73 @@ function infen(var1){
                 <table>
                     <tr>
                         <td>时间表</td>
-                        <td>11-16</td>
-                        <td>11-17</td>
-                        <td>11-11</td>
-                        <td>11-12</td>
-                        <td>11-13</td>
-                        <td>11-14</td>
-                        <td>11-15</td>
+                        <td>{{time_list.0}}</td>
+                        <td>{{time_list.1}}</td>
+                        <td>{{time_list.2}}</td>
+                        <td>{{time_list.3}}</td>
+                        <td>{{time_list.4}}</td>
+                        <td>{{time_list.5}}</td>
+                        <td>{{time_list.6}}</td>
                     </tr>
                     <tr>
                         <td>08:00-09:45</td>
-                        <td>占用</td>
-                        <td>占用</td>
-                        <td>占用</td>
-                        <td>占用</td>
-                        <td>占用</td>
-                        <td><input type="submit" value="申请" class="btn btn-success"></td>
-                        <td><input type="submit" value="申请" class="btn btn-success"></td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.0}}-08:00-09:45'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.1}}-08:00-09:45'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.2}}-08:00-09:45'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.3}}-08:00-09:45'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.4}}-08:00-09:45'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.5}}-08:00-09:45'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.6}}-08:00-09:45'">{% endifequal %}</td>
                     </tr>
                     <tr>
                         <td>10:00-11:45</td>
-                        <td>占用</td>
-                        <td>占用</td>
-                        <td>占用</td>
-                        <td><input type="submit" value="申请" class="btn btn-success"></td>
-                        <td>占用</td>
-                        <td><input type="submit" value="申请" class="btn btn-success"></td>
-                        <td><input type="submit" value="申请" class="btn btn-success"></td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.0}}-10:00-11:45'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.1}}-10:00-11:45'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.2}}-10:00-11:45'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.3}}-10:00-11:45'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.4}}-10:00-11:45'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.5}}-10:00-11:45'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.6}}-10:00-11:45'">{% endifequal %}</td>
                     </tr>
                     <tr>
                         <td>13:45-15:30</td>
-                        <td>占用</td>
-                        <td>占用</td>
-                        <td><input type="submit" value="申请" class="btn btn-success"></td>
-                        <td>占用</td>
-                        <td>占用</td>
-                        <td>占用</td>
-                        <td><input type="submit" value="申请" class="btn btn-success"></td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.0}}-13:45-15:30'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.1}}-13:45-15:30'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.2}}-13:45-15:30'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.3}}-13:45-15:30'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.4}}-13:45-15:30'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.5}}-13:45-15:30'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.6}}-13:45-15:30'">{% endifequal %}</td>
                     </tr>
                     <tr>
                         <td>15:45-17:30</td>
-                        <td>占用</td>
-                        <td>占用</td>
-                        <td><input type="submit" value="申请" class="btn btn-success"></td>
-                        <td>占用</td>
-                        <td>占用</td>
-                        <td>占用</td>
-                        <td><input type="submit" value="申请" class="btn btn-success"></td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.0}}-15:45-17:30'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.1}}-15:45-17:30'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.2}}-15:45-17:30'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.3}}-15:45-17:30'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.4}}-15:45-17:30'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.5}}-15:45-17:30'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.6}}-15:45-17:30'">{% endifequal %}</td>
                     </tr>
                     <tr>
                         <td>18:30-21:10</td>
-                        <td>占用</td>
-                        <td>占用</td>
-                        <td><input type="submit" value="申请" class="btn btn-success"></td>
-                        <td>占用</td>
-                        <td><input type="submit" value="申请" class="btn btn-success"></td>
-                        <td><input type="submit" value="申请" class="btn btn-success"></td>
-                        <td><input type="submit" value="申请" class="btn btn-success"></td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.0}}-18:30-21:10'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.1}}-18:30-21:10'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.2}}-18:30-21:10'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.3}}-18:30-21:10'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.4}}-18:30-21:10'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.5}}-18:30-21:10'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.6}}-18:30-21:10'">{% endifequal %}</td>
                     </tr>
                     <tr>
                         <td>21:20-22:50</td>
-                        <td><input type="submit" value="申请" class="btn btn-success"></td>
-                        <td><input type="submit" value="申请" class="btn btn-success"></td>
-                        <td><input type="submit" value="申请" class="btn btn-success"></td>
-                        <td><input type="submit" value="申请" class="btn btn-success"></td>
-                        <td><input type="submit" value="申请" class="btn btn-success"></td>
-                        <td><input type="submit" value="申请" class="btn btn-success"></td>
-                        <td><input type="submit" value="申请" class="btn btn-success"></td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.0}}-21:20-22:50'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.1}}-21:20-22:50'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.2}}-21:20-22:50'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.3}}-21:20-22:50'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.4}}-21:20-22:50'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.5}}-21:20-22:50'">{% endifequal %}</td>
+                        <td>{% ifequal room.time_access.0 '1' %} 占用 {% else %}<input type="button" class="btn btn-success" value="申请" onclick="window.location.href='/class_apply/?room={{room.name}}&time={{time_list.6}}-21:20-22:50'">{% endifequal %}</td>
                     </tr>
                 </table>
             </div>
