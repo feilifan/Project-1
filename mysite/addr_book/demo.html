@@ -13,28 +13,34 @@
     <div class="container">
     <form method = "post">
         <div class="row-fluid">
-            <p>name</p>
-            <input name="name" type="text">
-            <p>floor</p>
-            <input name="floor" type="text">
-            <p>building</p>
-            <input name="building" type="text">
-            <p>size</p>
-            <select name="size">
-{% for size in sizelist %}
-<option value="{{ size }}">{{ size }}</option>{% endfor %}
-</select>
-<p>多媒体</p>
-<select name="multimedia">
-<option value="True">是</option>
-<option value="False">否</option>
-</select>
-<p>time access</p>
-            <input name="time_access" type="text">
-
-            <input type="submit" value="提交">
+            <h3>名字<input name="name" type="text" style="margin-left:10px"></h3>
+            <h3 style="margin-top:15px">楼栋<select name="building" style="margin-left:10px;font-size:17px;width:100px">
+                    <option value="正心">正心</option>
+                    <option value="致知">致知</option>
+                    <option value="格物">格物</option>
+                    <option value="诚意">诚意</option>
+                    </select></h3>
+            <h3 style="margin-top:15px">楼层<select name="floor" style="margin-left:10px;font-size:17px;width:100px">
+                <option value="1">1层</option>
+                <option value="2">2层</option>
+                <option value="3">3层</option>
+                <option value="4">4层</option>
+                <option value="5">5层</option>
+                <option value="6">6层</option>
+                <option value="7">7层</option>
+                <option value="8">8层</option>
+                <option value="9">9层</option>
+                <option value="10">10层</option>
+                </select></h3>
+            <h3 style="margin-top:15px">可容纳人数<select name="size" style="margin-left:10px;font-size:17px;width:100px">
+                <option value="10-30">10-30</option>
+                <option value="30-50">30-50</option>
+                <option value="50-100">50-100</option>
+                <option value="100-200">100-200</option>
+                <option value="200+">200+</option>
+                </select></h3>
+            <input type="submit" value="提交" class="btn btn-success btn-large">
         </div>
-    </form>
         <div class="row-fluid">
             <div class="Planlist" style="border-radius:5px">
                 <p style="text-align:center;background:#66ffcc">© 2015 哈尔滨工业大学 版权所有</p>

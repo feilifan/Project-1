@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/css/bootstrap.css" rel="stylesheet">
+<link href="/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+<link href="/css/hosting.css" rel="stylesheet" media="all">
+<link rel="stylesheet" type="text/css" href="/css/styles.css">
+<script type="text/javascript" src="/css/year_month_day.js"></script>
+</head>
+
+<body>
+    <form method="post">
+    <div class="PlanPricing template4" style="width:30%;display:block;margin-left:auto;margin-right:auto;">
+        <h2 style="text-align:center">{{m_apply.room}}</h2>
+            <p style="font-weight:bold;margin-top:15%;text-align:center">申请人：{{m_apply.applyer.name}}</p>
+            <p style="font-weight:bold;text-align:center">时间：{{m_apply.time}}</p>
+            <p style="font-weight:bold;text-align:center">理由：{{m_apply.reason}}</p>
+            <img src="/site_media/1.jpg" style="border-radius:10px;display:block;margin-left:auto;margin-right:auto;">    
+        <input type="submit" name = "yes" class="btn btn-success" style="display:block;margin-left:auto;margin-right:auto;" value="允许" >
+        <input type="submit" name = "no" class="btn btn-success" style="display:block;margin-left:auto;margin-right:auto;" value="拒绝" >
+    </div>
+</form>
+</body>
+</html>

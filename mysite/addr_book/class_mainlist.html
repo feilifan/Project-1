@@ -50,12 +50,14 @@
             <div class="span6 Planlist" style="margin-left:10px;border-radius:5px;width:460px">
                 <h2 style="text-align:center">其他条件</h2>
                 <h3 style="margin-top:15px">楼栋<select name="building" style="margin-left:10px;font-size:17px;width:100px;border-radius:50px">
+                    <option value=""></option>
                     <option value="正心">正心</option>
                     <option value="致知">致知</option>
                     <option value="格物">格物</option>
                     <option value="诚意">诚意</option>
                     </select></h3>
                 <h3 style="margin-top:15px">楼层<select name="floor" style="margin-left:10px;font-size:17px;width:100px;border-radius:50px">
+                    <option value=""></option>
                     <option value="1">1层</option>
                     <option value="2">2层</option>
                     <option value="3">3层</option>
@@ -68,6 +70,7 @@
                     <option value="10">10层</option>
                     </select></h3>
                 <h3 style="margin-top:15px">可容纳人数<select name="size" style="margin-left:10px;font-size:17px;width:100px;border-radius:50px">
+                    <option value=""></option>
                     <option value="10-30">10-30</option>
                     <option value="30-50">30-50</option>
                     <option value="50-100">50-100</option>
@@ -97,8 +100,8 @@
                 var selDay = window.document.getElementById("selDay"); 
                 new DateSelector(selYear, selMonth, selDay, 2015, 11, 10);
                 </script>
-                <input type="submit" class="btn btn-success btn-large" style="margin-top:9px" value="查询">
-                <input type="submit" class="btn btn-success btn-large" style="margin-top:9px" value="教室推荐">
+                <input name="search" type="submit"  class="btn btn-success btn-large" style="margin-top:9px" value="查询">
+                <input name="recommend" type="submit" class="btn btn-success btn-large" style="margin-top:9px" value="教室推荐">
             </div>
         </div>
         <div class="row-fluid">

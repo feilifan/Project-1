@@ -64,6 +64,37 @@ function infen(var1){
                     <div id="sitelogo" style="margin-top:10px">
                         <span>评分：</span>
                         <ul class="starrating" style="margin:0;padding:0;list-style-type:none;">
+                            <li id="currentrating"></li>
+                            {% ifequal discuss.point "1" %}
+                                <li><a style="background:url('/site_media/starrating.gif') left 35px;z-index:2;left:0;">1</a></li>
+                            {% endifequal %}
+                            {% ifequal discuss.point "2" %}
+                                <li><a style="background:url('/site_media/starrating.gif') left 35px;z-index:2;left:0;width:20px">2</a></li>
+                            {% endifequal %}
+                            {% ifequal discuss.point "3" %}
+                                <li><a style="background:url('/site_media/starrating.gif') left 35px;z-index:2;left:0;width:30px">3</a></li>
+                            {% endifequal %}
+                            {% ifequal discuss.point "4" %}
+                                <li><a style="background:url('/site_media/starrating.gif') left 35px;z-index:2;left:0;width:40px">4</a></li>
+                            {% endifequal %}
+                            {% ifequal discuss.point "5" %}
+                                <li><a style="background:url('/site_media/starrating.gif') left 35px;z-index:2;left:0;width:50px">5</a></li>
+                            {% endifequal %}
+                            {% ifequal discuss.point "6" %}
+                                <li><a style="background:url('/site_media/starrating.gif') left 35px;z-index:2;left:0;width:60px">6</a></li>
+                            {% endifequal %}
+                            {% ifequal discuss.point "7" %}
+                                <li><a style="background:url('/site_media/starrating.gif') left 35px;z-index:2;left:0;width:70px">7</a></li>
+                            {% endifequal %}
+                            {% ifequal discuss.point "8" %}
+                                <li><a style="background:url('/site_media/starrating.gif') left 35px;z-index:2;left:0;width:80px">8</a></li>
+                            {% endifequal %}
+                            {% ifequal discuss.point "9" %}
+                                <li><a style="background:url('/site_media/starrating.gif') left 35px;z-index:2;left:0;width:90px">9</a></li>
+                            {% endifequal %}
+                            {% ifequal discuss.point "10" %}
+                                <li><a style="background:url('/site_media/starrating.gif') left 35px;z-index:2;left:0;width:100px">10</a></li>
+                            {% endifequal %}
                         </ul>
                     </div>
                     <p style="margin-top:10px;margin-left:10px;">评语：{{discuss.content}}</p>

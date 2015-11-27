@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/css/bootstrap.css" rel="stylesheet">
+<link href="/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+<link href="/css/hosting.css" rel="stylesheet" media="all">
+<link rel="stylesheet" type="text/css" href="/css/styles.css">
+<script type="text/javascript" src="/css/year_month_day.js"></script>
+</head>
+
+<body>
+    {% for apply in apply_list %}
+        <div class="PlanPricing template4">
+            <div class="span2"><h2 style="margin-top:15%">{{apply.room}}</h2></div>
+            <div class="span3" style="width:17%">
+                <p style="font-weight:bold;margin-top:15%">申请人：{{apply.applyer.name}}</p>
+                <p style="font-weight:bold">时间：{{apply.time}}</p>
+            </div>
+            <div class="span2">
+                <img src="/site_media/1.jpg" style="margin-left:10px;border-radius:10px">
+            </div>    
+            <input type="button" class="btn btn-success" style="margin-top:1%;margin-left:50px;width:120px" value="查询信息" onclick="window.open('/dealing/?room={{apply.room}}&applyer={{apply.applyer.name}}&time={{apply.time}}')">
+        </div>
+    {% endfor %}
+</body>
+</html>

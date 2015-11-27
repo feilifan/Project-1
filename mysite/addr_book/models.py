@@ -33,6 +33,7 @@ class Apply_list(models.Model):
         return self.name
         
 class Discuss_list(models.Model):
+    room = models.CharField(max_length=30)
     discusser = models.ForeignKey(People,related_name="discusser_list")
     point = models.CharField(max_length=30)
     content = models.CharField(max_length=100)
