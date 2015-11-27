@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/css/bootstrap.css" rel="stylesheet">
+<link href="/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+<link href="/css/hosting.css" rel="stylesheet" media="all">
+<link rel="stylesheet" type="text/css" href="/css/styles.css">
+<script type="text/javascript" src="/css/year_month_day.js"></script>
+</head>
+
+<body>
+    <div class="container">
+    
+{% for class in classlist %}
+<form method="post">
+<div class="row-fluid">
+<p>{{ class.room }}   {{ class.reason }}    {{ class.time }}  {{ class.applyer.name }}  {{ class.hostname }}
+<select name="{{ class.applyer.name }}">
+<option value="True">agree</option>
+<option value="False">deny</option>
+</select>
+<input type="submit" value="submit">
+</p>
+</div>
+</form>
+{% endfor %}
+ <p style="text-align:center;background:#66ffcc">© 2015 哈尔滨工业大学 版权所有</p>
+</div>
+</body>
+</html>
