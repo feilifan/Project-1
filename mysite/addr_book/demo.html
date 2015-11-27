@@ -20,7 +20,18 @@
             <p>building</p>
             <input name="building" type="text">
             <p>size</p>
-            <input name="size" type="text">
+            <select name="size">
+{% for size in sizelist %}
+<option value="{{ size }}">{{ size }}</option>{% endfor %}
+</select>
+<p>多媒体</p>
+<select name="multimedia">
+<option value="True">是</option>
+<option value="False">否</option>
+</select>
+<p>time access</p>
+            <input name="time_access" type="text">
+
             <input type="submit" value="提交">
         </div>
     </form>
