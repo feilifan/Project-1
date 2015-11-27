@@ -1,11 +1,10 @@
+#coding=utf-8
 from django.shortcuts import render, render_to_response
-from django.http import HttpResponse,HttpResponseRedirect
 from django.template import Context
 from addr_book.models import People,Classroom,Apply_list,Discuss_list
 from django.contrib.auth.models import User
 from django.contrib import auth
 import re
-import datetime
 # Create your views here.
 from django.http import HttpResponse
 def class_apply(request):
@@ -28,16 +27,7 @@ def class_apply(request):
 def class_binfo(request):
     if not request.user:
         return render_to_response('class_home.html')
-    get = request.GET
-    room = Classroom.objects.filter(name=get['room'])
-    time_list=[]
-    for i in range (0,7):
-        tmp_time=datetime.datetime.now()
-        time_delta=datetime.timedelta(days=i)
-        tmp_time=tmp_time+time_delta
-        str_time=tmp_time.strftime('%Y-%m-%d')
-        time_list.append(str_time)
-    return render_to_response('class_binfo.html',{'room':room[0],'time_list':time_list})
+    return render_to_response('class_binfo.html')
 def class_discuss(request):
     if not request.user:
         return render_to_response('class_home.html')
@@ -45,12 +35,11 @@ def class_discuss(request):
     room = Classroom.objects.filter(name = get['room'])
     if request.POST:
         post = request.POST
-        if 'point' in get and 'content' in post:
-            new_discuss = Discuss_list(discusser=People.objects.get(user=request.user),
+        new_discuss = Discuss_list(discusser=People.objects.get(user=request.user),
                                    point = get['point'],
                                    content = post['content'])
-            new_discuss.save()
-            return HttpResponseRedirect('/class_seediscuss/?room='+get['room'])
+        new_discuss.save()
+        return render_to_response('class_discuss.html',{'room':room[0]})
     return render_to_response('class_discuss.html',{'room':room[0]})
 def class_home(request):
     if request.POST:
@@ -108,14 +97,12 @@ def class_selflist(request):
     person = People.objects.get(name = request.user.username)
     apply_list = Apply_list.objects.filter(applyer = person)
     i=0
-    dic={"person":person,'apply_list':apply_list,}
     for m_apply in apply_list:
         if not m_apply.pasttime:
             nearest_apply = m_apply
-            dic['nearest_apply']=nearest_apply
             break
         i = i + 1
-    return render_to_response('class_selflist.html',dic)
+    return render_to_response('class_selflist.html',{"person":person,'apply_list':apply_list,'nearest_apply':nearest_apply})
     
 def class_delete(request):
     if not request.user:
@@ -126,26 +113,48 @@ def class_delete(request):
     person = People.objects.get(name = request.user.username)
     apply_list = Apply_list.objects.filter(applyer = person)
     i=0
-    dic={"person":person,'apply_list':apply_list,}
     for m_apply in apply_list:
         if not m_apply.pasttime:
             nearest_apply = m_apply
-            dic['nearest_apply']=nearest_apply
             break
         i = i + 1
-    return render_to_response('class_selflist.html',dic)
+    return render_to_response('class_selflist.html',{"person":person,'apply_list':apply_list,'nearest_apply':nearest_apply})
 def class_admin(request):
+    sizelist = ['10-30', '30-50', '50-100', '100-200', '200以上']
     if request.POST:
+        #print 'post'
         post = request.POST
+        #print request.POST['multimedia']
         hoster = People.objects.get(name = request.user.username)
         new_room = Classroom(hoster = hoster,
                              name = post['name'],
                              floor = post['floor'],
                              building = post['building'],
                              size = post['size'],
-                             time_access = "0"*42)
+                             multimedia = bool(request.POST['multimedia']),
+                             time_access = request.POST['time_access'])
         new_room.save()
-        return render_to_response("demo.html")
-    return render_to_response("demo.html")
-    
-            
+        #print request.POST['multimedia']
+        return render_to_response("demo.html", {'sizelist':sizelist})
+    return render_to_response("demo.html", {'sizelist':sizelist})
+
+def class_check(request):
+    classlist = Apply_list.objects.filter(state='notyet')
+    content = {'classlist': classlist}
+    if request.POST:
+        #print 'postssssssssssssssssssssssssssssss'
+        post = request.POST
+        for key in post:
+            print key
+            applyer = People.objects.filter(name=key)
+            app = Apply_list.objects.filter(applyer=applyer)
+            print type(post[key]), bool(post[key]) == True, bool(post[key])
+            if bool(post[key]) == True:
+                state = 'yes'
+            else:
+                state = 'no'
+            print state
+            app[0].app(state)
+            print app[0].state
+        return render(request, "class_check.html", content)
+    return render(request, "class_check.html", content)
