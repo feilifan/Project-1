@@ -45,9 +45,9 @@ def class_discuss(request):
     room = Classroom.objects.filter(name = get['room'])
     if request.POST:
         post = request.POST
-        if 'point' in get and 'content' in post:
+        if 'point' in post and 'content' in post:
             new_discuss = Discuss_list(discusser=People.objects.get(user=request.user),
-                                   point = get['point'],
+                                   point = post['point'],
                                    room = get['room'],
                                    content = post['content'])
             new_discuss.save()

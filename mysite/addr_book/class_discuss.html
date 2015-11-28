@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="/css/styles.css">
 <script type="text/javascript" src="/css/year_month_day.js"></script>
 <script>
+newsid=0
 function GI(id){
     return document.getElementById(id);
 }
@@ -20,6 +21,10 @@ function infen(var1){
         GI("pfno").innerHTML="";
         GI("currentrating").style.display="block";
     }
+}
+function makePoint(point){
+    GI("hid_point").value=point;
+    newsid=point;
 }
 </script>
 </head>
@@ -63,25 +68,16 @@ function infen(var1){
                     <span>评分：</span>
                     <ul class="starrating" style="margin:0;padding:0;list-style-type:none;">
                         <li id="currentrating"></li>
-                        <script>
-                        urlinfo=window.location.href; 
-                        len=urlinfo.length;
-                        offset=urlinfo.indexOf("?");
-                        newsidinfo=urlinfo.substr(offset,len) 
-                        newsids=newsidinfo.split("="); 
-                        newsid=newsids[2];
-                        newsid=parseInt(newsid)
-                        </script>
-                        <li><a onclick="window.location.href='/class_discuss/?room={{room.name}}&point=1'" onmouseover="infen(1)" onmouseout="infen(newsid)" class="star1">1</a></li>
-                        <li><a onclick="window.location.href='/class_discuss/?room={{room.name}}&point=2'" onmouseover="infen(2)" onmouseout="infen(newsid)" class="star2">2</a></li>
-                        <li><a onclick="window.location.href='/class_discuss/?room={{room.name}}&point=3'" onmouseover="infen(3)" onmouseout="infen(newsid)" class="star3">3</a></li>
-                        <li><a onclick="window.location.href='/class_discuss/?room={{room.name}}&point=4'" onmouseover="infen(4)" onmouseout="infen(newsid)" class="star4">4</a></li>
-                        <li><a onclick="window.location.href='/class_discuss/?room={{room.name}}&point=5'" onmouseover="infen(5)" onmouseout="infen(newsid)" class="star5">5</a></li>
-                        <li><a onclick="window.location.href='/class_discuss/?room={{room.name}}&point=6'" onmouseover="infen(6)" onmouseout="infen(newsid)" class="star6">6</a></li>
-                        <li><a onclick="window.location.href='/class_discuss/?room={{room.name}}&point=7'" onmouseover="infen(7)" onmouseout="infen(newsid)" class="star7">7</a></li>
-                        <li><a onclick="window.location.href='/class_discuss/?room={{room.name}}&point=8'" onmouseover="infen(8)" onmouseout="infen(newsid)" class="star8">8</a></li>
-                        <li><a onclick="window.location.href='/class_discuss/?room={{room.name}}&point=9'" onmouseover="infen(9)" onmouseout="infen(newsid)" class="star9">9</a></li>
-                        <li><a onclick="window.location.href='/class_discuss/?room={{room.name}}&point=10'" onmouseover="infen(10)" onmouseout="infen(newsid)" class="star10">10</a></li>
+                        <li><a onclick="makePoint(1)" onmouseover="infen(1)" onmouseout="infen(newsid)" class="star1">1</a></li>
+                        <li><a onclick="makePoint(2)" onmouseover="infen(2)" onmouseout="infen(newsid)" class="star2">2</a></li>
+                        <li><a onclick="makePoint(3)" onmouseover="infen(3)" onmouseout="infen(newsid)" class="star3">3</a></li>
+                        <li><a onclick="makePoint(4)" onmouseover="infen(4)" onmouseout="infen(newsid)" class="star4">4</a></li>
+                        <li><a onclick="makePoint(5)" onmouseover="infen(5)" onmouseout="infen(newsid)" class="star5">5</a></li>
+                        <li><a onclick="makePoint(6)" onmouseover="infen(6)" onmouseout="infen(newsid)" class="star6">6</a></li>
+                        <li><a onclick="makePoint(7)" onmouseover="infen(7)" onmouseout="infen(newsid)" class="star7">7</a></li>
+                        <li><a onclick="makePoint(8)" onmouseover="infen(8)" onmouseout="infen(newsid)" class="star8">8</a></li>
+                        <li><a onclick="makePoint(9)" onmouseover="infen(9)" onmouseout="infen(newsid)" class="star9">9</a></li>
+                        <li><a onclick="makePoint(10)" onmouseover="infen(10)" onmouseout="infen(newsid)" class="star10">10</a></li>
                     </ul>       
                     <span id="pfno" style="margin:0;padding:0;list-style-type:none;"></span>
                 </div>
@@ -89,6 +85,7 @@ function infen(var1){
                     <span style="vertical-align:top;margin-left:10px">评语：</span>
                     <textarea name = "content" cols="5" rows="5"></textarea>
                 </div>
+                <input id= "hid_point" type="hidden" name="point" value="0">
                  <input type="submit" class = "btn btn-success btn-large" style="border-radius:5px;margin-top:20px;margin-left:10px;" value="发表评论">
             </div>
             <div class="span5 Planlist" style="position:relative;border-radius:5px;width:660px;z-index:-2;margin-left:10px">
