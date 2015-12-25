@@ -168,7 +168,9 @@ def class_selflist(request):
             nearest_apply = m_apply
             break
         i = i + 1
-    dic={"person":person,'apply_list':apply_list,'nearest_apply':nearest_apply}
+    dic={"person":person,'apply_list':apply_list}
+    if (apply_list):
+        dic["nearest_apply"]=nearest_apply;
     return render_to_response('class_selflist.html',dic)
     
 def class_delete(request):
