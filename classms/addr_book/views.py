@@ -22,7 +22,7 @@ def class_apply(request):
                                state='notyet',
                                reason=post['reason'])
         new_apply.save()
-        return render_to_response('class_apply.html',{'room':room[0],'apply_time':get['time'],'applyer':applyer,'admin_code':applyer.admin_code})
+        return HttpResponseRedirect('/class_mainlist/')
     return render_to_response('class_apply.html',{'room':room[0],'apply_time':get['time'],'applyer':applyer,'admin_code':applyer.admin_code})
 def class_binfo(request):
     if not request.user.username:
@@ -293,7 +293,8 @@ def class_deal_true(request):
     m_apply = Apply_list.objects.filter(room=get['room'],time=get['time'],applyer=applyer[0])
     if request.POST:
         post = request.POST
-        if post['yes']:
+        try:
+            sys = post['yes']
             m_apply.update(state="yes")
             m_plz = 0
             for i in range (0,7):
@@ -318,8 +319,10 @@ def class_deal_true(request):
             old_time = m_room[0].time_access
             new_time = old_time[0:m_plz]+'1'+old_time[m_plz+1:42]
             m_room.update(time_access=new_time)
-        else:
+            return HttpResponseRedirect('/class_deal/')
+        except:
             m_apply.update(state="no")
+            return HttpResponseRedirect('/class_deal/')
     return render_to_response("demo3.html",{'m_apply':m_apply[0]})
         
         
