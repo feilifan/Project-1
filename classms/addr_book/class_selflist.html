@@ -29,13 +29,17 @@
                 </li>
                 <li class="nav_menu-item"><a style="color:#FFF;text-decoration:none">关于</a>
                   <ul class="nav_submenu">
-                    <li class="nav_submenu-item"> <a class="sub-link"><span>工作组</span></a></li>
-                    <li class="nav_submenu-item"> <a class="sub-link"><span>开发人信息</span></a></li>
-                    <li class="nav_submenu-item"> <a class="sub-link"><span>公司</span></a></li>
+                    <li class="nav_submenu-item"> <a class="sub-link" onclick="message(1)"><span>工作组</span></a></li>
+                    <li class="nav_submenu-item"> <a class="sub-link" onclick="message(4)"><span>维护人信息</span></a></li>
+                    <li class="nav_submenu-item"> <a class="sub-link" onclick="message(5)"><span>公司</span></a></li>
                   </ul>
                 </li>
-                <li class="nav_menu-item"><a style="color:#FFF;text-decoration:none">联系方式</a></li>
-                <li class="nav_menu-item"><a style="color:#FFF;text-decoration:none">帮助</a></li>
+                <li class="nav_menu-item"><a style="color:#FFF;text-decoration:none" onclick="message(2)">联系方式</a></li>
+                <li class="nav_menu-item"><a style="color:#FFF;text-decoration:none" onclick="message(3)">帮助</a></li>
+                {% if admin_code %}
+                <li class="nav_menu-item"><a href="/class_admin/"style="color:#FFF;text-decoration:none">教室添加</a></li>
+                <li class="nav_menu-item"><a href="/class_deal/"style="color:#FFF;text-decoration:none">申请审批</a></li>
+                {% endif %}
               </ul>
             </nav>
         </div>
@@ -44,9 +48,10 @@
                 <h2 style="text-align:center">个人信息</h2>
                 <p style="margin-top:20px;font-size:20px">用户名:{{person.nickname}}</p>
                 <p style="margin-top:20px;font-size:20px">注册邮箱:{{person.email}}</p>
-                <p style="margin-top:20px;font-size:20px">正借用教室数：{{now_number}}</p>
-                <p style="margin-top:20px;font-size:20px">历史共计数目：{{room_number}}</p>
-                <p style="margin-top:20px;font-size:20px">发表评论数目：{{discuss_number}}</p>
+                <p style="margin-top:20px;font-size:20px">正借用教室数：{{now_num}}</p>
+                <p style="margin-top:20px;font-size:20px">历史共计数目：{{all_num}}</p>
+                <p style="margin-top:20px;font-size:20px">发表评论数目：{{dis_num}}</p>
+                <input type="button" class="btn btn-success" style="width:80px" value="注销" onclick="window.location.href='/logout/'">
             </div>
             <div class="span6 Planlist" style="border-radius:5px;width:750px;margin-left:20px;height:300px;">
                 <h2 style="text-align:center">最近生效</h2>
@@ -75,7 +80,9 @@
                         <div class="span3" style="width:17%">
                             <p style="font-weight:bold;margin-top:8%">管理人：{{apply.hostname}}</p>
                             <p style="font-weight:bold">时间：{{apply.time}}</p>
-                            <p style="font-weight:bold">状态：{{apply.state}}</p>
+                            {% ifequal apply.state 'notyet' %} <p style="font-weight:bold">状态:<span style="font-weight:bold">未审批</span></p>{% endifequal %}
+                            {% ifequal apply.state 'yes' %} <p style="font-weight:bold">状态:<span style="font-weight:bold">已生效</span></p>{% endifequal %}
+                            {% ifequal apply.state 'no' %} <p style="font-weight:bold">状态:<span style="font-weight:bold;color:red">被拒绝</span></p>{% endifequal %}
                         </div>
                         <div class="span2">
                             <img src="/site_media/1.jpg" style="margin-left:10px;border-radius:10px">

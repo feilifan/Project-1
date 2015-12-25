@@ -12,6 +12,38 @@
 <body>
     <div class="container">
     <form method = "post">
+        <div class="row-fluid PageHead">
+            <h1 style="text-align:center;position:relative;z-index:2;margin-top:43px">教室借用</h1>
+            <div class="wrapper" style="height:160px;position:relative;width:100%;margin-top:-100px">
+                <div class="bg-bubble-label" style="width:50px;height:50px;margin-left:450px;top:28%"></div>
+                <div class="bg-bubble-label2" style="width:50px;height:50px;margin-left:450px;top:28%"></div>
+            </div>
+        </div>
+        <div class="row-fluid" style="margin-top:10px">
+            <nav class="nav" style="width:100%">
+              <ul class="nav_menu">
+                <li class="nav_menu-item"><a href="/class_selflist/" style="color:#FFF;text-decoration:none">我的主页</a></li>
+                <li class="nav_menu-item"><a style="color:#FFF;text-decoration:none">服务</a>
+                  <ul class="nav_submenu">
+                    <li class="nav_submenu-item"> <a class="sub-link" href="/class_mainlist/"><span>教室查询</span></a></li>
+                  </ul>
+                </li>
+                <li class="nav_menu-item"><a style="color:#FFF;text-decoration:none">关于</a>
+                  <ul class="nav_submenu">
+                    <li class="nav_submenu-item"> <a class="sub-link" onclick="message(1)"><span>工作组</span></a></li>
+                    <li class="nav_submenu-item"> <a class="sub-link" onclick="message(4)"><span>维护人信息</span></a></li>
+                    <li class="nav_submenu-item"> <a class="sub-link" onclick="message(5)"><span>公司</span></a></li>
+                  </ul>
+                </li>
+                <li class="nav_menu-item"><a style="color:#FFF;text-decoration:none" onclick="message(2)">联系方式</a></li>
+                <li class="nav_menu-item"><a style="color:#FFF;text-decoration:none" onclick="message(3)">帮助</a></li>
+
+                <li class="nav_menu-item"><a href="/class_admin/"style="color:#FFF;text-decoration:none">教室添加</a></li>
+                <li class="nav_menu-item"><a href="/class_deal/"style="color:#FFF;text-decoration:none">申请审批</a></li>
+                
+              </ul>
+            </nav>
+        </div>
         <div class="row-fluid">
             <h3>名字<input name="name" type="text" style="margin-left:10px"></h3>
             <h3 style="margin-top:15px">楼栋<select name="building" style="margin-left:10px;font-size:17px;width:100px">

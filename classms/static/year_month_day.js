@@ -1,4 +1,17 @@
-﻿function DateSelector(selYear, selMonth, selDay) {
+﻿function message(number)
+{
+    if (number==1)
+    alert("work by FeiLifan and SunRihui");
+else if(number==2)
+    alert("Feilifan:\nQQ:1404846546\nphone number:15546020506\nSunrihui:\nQQ:1529360966\nphone number:15776608641");
+else if(number==3)
+    alert("contact me for any help");
+else if(number==4)
+    alert("Cai changlong");
+else if(number==5)
+    alert("Copyright ©2015 - 2016 Isael_Sun Inc. All Rights Reserved");
+}
+function DateSelector(selYear, selMonth, selDay) {
     this.selYear = selYear;
     this.selMonth = selMonth;
     this.selDay = selDay;
@@ -24,8 +37,8 @@
         this.InitSelector(dt.getFullYear(), dt.getMonth() + 1, dt.getDate());
     }
 }
-DateSelector.prototype.MinYear = 1900;
-DateSelector.prototype.MaxYear = (new Date()).getFullYear();
+DateSelector.prototype.MinYear = (new Date()).getFullYear();
+DateSelector.prototype.MaxYear = (new Date()).getFullYear()+1;
 DateSelector.prototype.InitYearSelect = function () {
     for (var i = this.MaxYear; i >= this.MinYear; i--) {
         var op = window.document.createElement("OPTION");

@@ -1,16 +1,15 @@
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponse,HttpResponseRedirect
 from django.template import Context
-from addr_book.models import People,Classroom,Apply_list,Discuss_list
+from addr_book.models import Site_time,People,Classroom,Apply_list,Discuss_list
 from django.contrib.auth.models import User
 from django.contrib import auth
-import re
 import datetime
 # Create your views here.
 from django.http import HttpResponse
 def class_apply(request):
-    if not request.user:
-        return render_to_response('class_home.html')
+    if not request.user.username:
+        return HttpResponseRedirect('/home/')
     get = request.GET
     room = Classroom.objects.filter(name=get['room'])
     applyer = People.objects.get(user = request.user)
@@ -23,11 +22,12 @@ def class_apply(request):
                                state='notyet',
                                reason=post['reason'])
         new_apply.save()
-        return render_to_response('class_apply.html',{'room':room[0],'apply_time':get['time'],'applyer':applyer})
-    return render_to_response('class_apply.html',{'room':room[0],'apply_time':get['time'],'applyer':applyer})
+        return render_to_response('class_apply.html',{'room':room[0],'apply_time':get['time'],'applyer':applyer,'admin_code':applyer.admin_code})
+    return render_to_response('class_apply.html',{'room':room[0],'apply_time':get['time'],'applyer':applyer,'admin_code':applyer.admin_code})
 def class_binfo(request):
-    if not request.user:
-        return render_to_response('class_home.html')
+    if not request.user.username:
+        return HttpResponseRedirect('/home/')
+    person = People.objects.get(name = request.user.username)
     get = request.GET
     room = Classroom.objects.filter(name=get['room'])
     time_list=[]
@@ -37,10 +37,11 @@ def class_binfo(request):
         tmp_time=tmp_time+time_delta
         str_time=tmp_time.strftime('%Y-%m-%d')
         time_list.append(str_time)
-    return render_to_response('class_binfo.html',{'room':room[0],'time_list':time_list})
+    return render_to_response('class_binfo.html',{'room':room[0],'time_list':time_list,'admin_code':person.admin_code})
 def class_discuss(request):
-    if not request.user:
-        return render_to_response('class_home.html')
+    if not request.user.username:
+        return HttpResponseRedirect('/home/')
+    person = People.objects.get(name = request.user.username)
     get = request.GET
     room = Classroom.objects.filter(name = get['room'])
     if request.POST:
@@ -52,7 +53,7 @@ def class_discuss(request):
                                    content = post['content'])
             new_discuss.save()
             return HttpResponseRedirect('/class_seediscuss/?room='+get['room'])
-    return render_to_response('class_discuss.html',{'room':room[0]})
+    return render_to_response('class_discuss.html',{'room':room[0],'admin_code':person.admin_code},)
 def class_home(request):
     if request.POST:
         post=request.POST
@@ -68,14 +69,40 @@ def class_home(request):
                     nearest_apply = m_apply
                     break
                 i = i + 1
-            dic={"person":person,'apply_list':apply_list,'nearest_apply':nearest_apply}
-            return render_to_response('class_selflist.html',dic)
+            now_time = Site_time.objects.all()
+            if now_time:
+                now_site_time = now_time[0]
+                last_time = now_site_time.last_time
+                tmp_time = datetime.datetime.now()
+                str_time = str_time=tmp_time.strftime('%Y-%m-%d')
+                i = 0
+                while last_time!=str_time:
+                    i = i + 1
+                    time_delta=datetime.timedelta(days=1)
+                    tmp_time=tmp_time+time_delta
+                    str_time=tmp_time.strftime('%Y-%m-%d')
+                if i>0:
+                    num = 6*i
+                    now_time.update(last_time=str_time)
+                    room_list = Classroom.objects.all()
+                    for room in room_list:
+                        time_acc = room.time_access
+                        time_acc = time_acc + '0'*num
+                        time_acc = time_acc[num:]
+                        room.update(time_access = time_acc)
+            else:
+                tmp_time = datetime.datetime.now()
+                str_time = str_time=tmp_time.strftime('%Y-%m-%d')
+                new_site_time = Site_time(last_time = str_time)
+                new_site_time.save()
+            return HttpResponseRedirect('/class_selflist/')
         else:
             return render_to_response("class_home.html",{"judge":True})
     return render_to_response('class_home.html',{"judge":True})
 def class_mainlist(request):
-    if not request.user:
-        return render_to_response('class_home.html')
+    if not request.user.username:
+        return HttpResponseRedirect('/home/')
+    person = People.objects.get(name = request.user.username)
     if request.POST:
         post = request.POST
         room_list = Classroom.objects.all()
@@ -126,8 +153,8 @@ def class_mainlist(request):
                 room_list = room_list.filter(name = mis_room.name)
         except:
             room_list = room_list
-        return render_to_response('class_mainlist.html',{"room_list":room_list,"apply_time":apply_time,'last_list':last_list})
-    return render_to_response('class_mainlist.html')
+        return render_to_response('class_mainlist.html',{"room_list":room_list,"apply_time":apply_time,'last_list':last_list,"admin_code":person.admin_code})
+    return render_to_response('class_mainlist.html',{"admin_code":person.admin_code})
 def class_register(request):
     if request.POST:
         post = request.POST
@@ -144,45 +171,81 @@ def class_register(request):
                                     school_number = post['id'])
                 new_people.save()
             except:
-                return render_to_response("class_register.html",{'judge':True,'judge2':False,})
+                return render_to_response("class_register.html",{'judge':True})
         else:
-            error = Context({'judge':False,'judge2':True,})
+            error = Context({'judge':False})
             return render_to_response("class_register.html",error)
-    error = Context({'judge':False,'judge2':True,})
+    error = Context({'judge':True})
     return render_to_response("class_register.html",error)
+def class_admin_register(request):
+    if request.POST:
+        post = request.POST
+        if post['code']==post['codex'] and post['admin_code']=='4d43e8685dc38071':
+            nickname =request.POST['name']
+            code =request.POST['code']
+            try:
+                user = User.objects.create_user(username=nickname,password=code)
+                user.save()
+                new_people = People(user = user,
+                                    email= post['email'],
+                                    nickname = post['nickname'],
+                                    name = post['name'],
+                                    school_number = post['id'],
+                                    admin_code = True)
+                new_people.save()
+            except:
+                return render_to_response("class_admin_register.html",{'judge':True})
+        else:
+            error = Context({'judge':False})
+            return render_to_response("class_admin_register.html",error)
+    error = Context({'judge':True})
+    return render_to_response("class_admin_register.html",error)
 def class_seediscuss(request):
-    if not request.user:
-        return render_to_response('class_home.html')
+    if not request.user.username:
+        return HttpResponseRedirect('/home/')
+    person = People.objects.get(name = request.user.username)
     get = request.GET
     room = Classroom.objects.filter(name = get['room'])
     discuss_list = Discuss_list.objects.all()
-    return render_to_response('class_seediscuss.html',{'room':room[0],'discuss_list':discuss_list})
+    return render_to_response('class_seediscuss.html',{'room':room[0],'discuss_list':discuss_list,"admin_code":person.admin_code})
 def class_selflist(request):
-    if not request.user:
-        return render_to_response('class_home.html')
+    if not request.user.username:
+        return HttpResponseRedirect('/home/')
     person = People.objects.get(name = request.user.username)
+    if not person:
+        return HttpResponseRedirect('/home/')
     apply_list = Apply_list.objects.filter(applyer = person)
-    i=0
+    per_discuss = Discuss_list.objects.filter(discusser = person) 
+    flag = False
+    now_num = 0
     for m_apply in apply_list:
         if not m_apply.pasttime:
-            nearest_apply = m_apply
-            break
-        i = i + 1
-    dic={"person":person,'apply_list':apply_list}
-    if (apply_list):
+            if m_apply.state=="yes":
+                flag = True
+                nearest_apply = m_apply
+                break
+    for m_apply in apply_list:
+        if m_apply.state=="yes":
+            now_num = now_num+1;
+    dic={"person":person,'now_num':now_num,'all_num':len(apply_list),'dis_num':len(per_discuss),'apply_list':apply_list,'admin_code':person.admin_code}
+    if flag:
         dic["nearest_apply"]=nearest_apply;
     return render_to_response('class_selflist.html',dic)
-    
+
+def logout(request):
+    auth.logout(request)
+    return HttpResponseRedirect('/home/')
 def class_delete(request):
-    if not request.user:
-        return render_to_response('class_home.html')
+    if not request.user.username:
+        return HttpResponseRedirect('/home/')
+    person = People.objects.get(name = request.user.username)
     get = request.GET
     apply_item = Apply_list.objects.get(room=get['room'],time=get['time'])
     apply_item.delete()
     person = People.objects.get(name = request.user.username)
     apply_list = Apply_list.objects.filter(applyer = person)
     i=0
-    dic={"person":person,'apply_list':apply_list,}
+    dic={"person":person,'apply_list':apply_list,"admin_code":person.admin_code}
     for m_apply in apply_list:
         if not m_apply.pasttime:
             nearest_apply = m_apply
@@ -191,6 +254,11 @@ def class_delete(request):
         i = i + 1
     return render_to_response('class_selflist.html',dic)
 def class_admin(request):
+    if not request.user.username:
+        return HttpResponseRedirect('/home/')
+    person = People.objects.get(name = request.user.username)
+    if person.admin_code==False:
+        return HttpResponseRedirect('/home/')
     if request.POST:
         post = request.POST
         hoster = People.objects.get(name = request.user.username)
@@ -205,11 +273,21 @@ def class_admin(request):
     return render_to_response("demo.html")
 
 def class_deal(request):
+    if not request.user.username:
+        return HttpResponseRedirect('/home/')
+    person = People.objects.get(name = request.user.username)
+    if person.admin_code==False:
+        return HttpResponseRedirect('/home/')
     apply_list = Apply_list.objects.filter(state = 'notyet')
     apply_list = apply_list.order_by('-time')
     return render_to_response('demo2.html',{'apply_list':apply_list})
     
 def class_deal_true(request):
+    if not request.user.username:
+        return HttpResponseRedirect('/home/')
+    person = People.objects.get(name = request.user.username)
+    if person.admin_code==False:
+        return HttpResponseRedirect('/home/')
     get = request.GET
     applyer = People.objects.filter(name=get['applyer'])
     m_apply = Apply_list.objects.filter(room=get['room'],time=get['time'],applyer=applyer[0])

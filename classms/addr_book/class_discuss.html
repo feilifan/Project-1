@@ -50,13 +50,17 @@ function makePoint(point){
                 </li>
                 <li class="nav_menu-item"><a style="color:#FFF;text-decoration:none">关于</a>
                   <ul class="nav_submenu">
-                    <li class="nav_submenu-item"> <a class="sub-link"><span>工作组</span></a></li>
-                    <li class="nav_submenu-item"> <a class="sub-link"><span>开发人信息</span></a></li>
-                    <li class="nav_submenu-item"> <a class="sub-link"><span>公司</span></a></li>
+                    <li class="nav_submenu-item"> <a class="sub-link" onclick="message(1)"><span>工作组</span></a></li>
+                    <li class="nav_submenu-item"> <a class="sub-link" onclick="message(4)"><span>维护人信息</span></a></li>
+                    <li class="nav_submenu-item"> <a class="sub-link" onclick="message(5)"><span>公司</span></a></li>
                   </ul>
                 </li>
-                <li class="nav_menu-item"><a style="color:#FFF;text-decoration:none">联系方式</a></li>
-                <li class="nav_menu-item"><a style="color:#FFF;text-decoration:none">帮助</a></li>
+                <li class="nav_menu-item"><a style="color:#FFF;text-decoration:none" onclick="message(2)">联系方式</a></li>
+                <li class="nav_menu-item"><a style="color:#FFF;text-decoration:none" onclick="message(3)">帮助</a></li>
+                {% if admin_code %}
+                <li class="nav_menu-item"><a href="/class_admin/"style="color:#FFF;text-decoration:none">教室添加</a></li>
+                <li class="nav_menu-item"><a href="/class_deal/"style="color:#FFF;text-decoration:none">申请审批</a></li>
+                {% endif %}
               </ul>
             </nav>
         </div>

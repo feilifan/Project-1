@@ -2,12 +2,18 @@ from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
 
+class Site_time(models.Model):
+    last_time = models.CharField(max_length=30)
+    def _unicode_(self):
+        return self.last_time
+
 class People(models.Model):
     user = models.ForeignKey(User,related_name="user_people")
     email = models.EmailField()
     nickname = models.CharField(max_length=30)
     name = models.CharField(max_length=30)
     school_number = models.CharField(max_length=15)
+    admin_code = models.BooleanField(default=False)
     def _unicode_(self):
         return self.name
 class Classroom(models.Model):
